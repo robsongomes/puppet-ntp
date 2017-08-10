@@ -10,7 +10,8 @@ class puppet_ntp(
   file { '/etc/ntp.conf':
     ensure  => file,
     content => $ntp_conf,
-    owner   => 'wheel',
+    owner   => 'root',
+    group   => 'wheel',
     mode    => '0664',
   }
 
