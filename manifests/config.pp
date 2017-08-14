@@ -1,15 +1,8 @@
 # == Class: ntp::config
 #
-class ntp::config {
-  case $facts['os']['family'] {
-    'RedHat': {
-      $group = 'wheel'
-    }
-    default: {
-      $group = 'root'
-    }
-  }
-
+class ntp::config (
+  $group = $::ntp::params::group
+) inherits ntp::params {
   file { '/etc/ntp.conf':
     ensure  => file,
     content => file('ntp/ntp.conf'),

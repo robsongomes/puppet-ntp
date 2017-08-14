@@ -1,15 +1,8 @@
 # == Class: ntp::service
 #
-class ntp::service {
-  case $facts['os']['family'] {
-    'RedHat': {
-      $service_name = 'ntpd'
-    }
-    default: {
-      $service_name = 'ntp'
-    }
-  }
-
+class ntp::service (
+  $service_name = $::ntp::params::service_name
+) inherits ntp::params {
   service { 'ntp':
     ensure    => running,
     enable    => true,
