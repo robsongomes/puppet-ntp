@@ -4,10 +4,10 @@ class puppet_ntp {
 
   package { 'ntp':
     ensure => installed,
-    before => Class['ntp::config'],
+    before => Class['puppet_ntp::config'],
   }
 
-  include ntp::service
-  include ntp::config
+  include puppet_ntp::service
+  include puppet_ntp::config
 
 }

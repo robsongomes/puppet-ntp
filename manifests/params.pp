@@ -1,6 +1,6 @@
 # == Class: ntp::params
 #
-class ntp::params {
+class puppet_ntp::params {
   case $facts['os']['family'] {
     'RedHat': {
       $group = 'wheel'
