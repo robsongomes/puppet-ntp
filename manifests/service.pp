@@ -7,6 +7,6 @@ class puppet_ntp::service (
     ensure    => running,
     enable    => true,
     name      => $service_name,
-    subscribe => File['puppet_ntp::config'],
+    subscribe => Class['puppet_ntp::config'],
   }
 }
