@@ -2,7 +2,7 @@
 #
 class puppet_ntp::config (
   $group = $::puppet_ntp::params::group,
-) inherits ntp::params {
+) inherits puppet_ntp::params {
   file { '/etc/ntp.conf':
     ensure  => file,
     content => file('puppet_ntp/ntp.conf'),
