@@ -9,6 +9,6 @@ class puppet_ntp::config (
     owner   => 'root',
     group   => $group,
     mode    => '0664',
-    notify  => Service['puppet_ntp::service'],
+    notify  => Class['puppet_ntp::service'],
   }
 }
