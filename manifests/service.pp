@@ -1,12 +1,10 @@
 # == Class: ntp::service
 #
-class puppet_ntp::service (
-  $service_name = $::puppet_ntp::params::service_name,
-) inherits puppet_ntp::params {
-  service { 'ntp':
+class puppet_ntp::service inherits puppet_ntp {
+
+  service {$service_name:
     ensure    => running,
     enable    => true,
-    name      => $service_name,
-    subscribe => Class['puppet_ntp::config'],
+    subscribe => File[$conf_file],
   }
 }
