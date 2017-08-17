@@ -7,8 +7,8 @@ class puppet_ntp (
   String $package_name = $::puppet_ntp::params::package_name,
 ) inherits puppet_ntp::params {
 
-  include puppet_ntp::install
-  include puppet_ntp::config
-  include puppet_ntp::service
+  contain puppet_ntp::install
+  contain puppet_ntp::config
+  contain puppet_ntp::service
 
 }

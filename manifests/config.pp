@@ -8,6 +8,5 @@ class puppet_ntp::config inherits puppet_ntp {
     owner   => 'root',
     group   => $group,
     mode    => '0664',
-    require => Package[$package_name],
   }
 }
