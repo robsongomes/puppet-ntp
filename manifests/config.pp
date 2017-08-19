@@ -4,7 +4,7 @@ class puppet_ntp::config inherits puppet_ntp {
 
   file { $conf_file:
     ensure  => file,
-    content => file('puppet_ntp/ntp.conf'),
+    content => epp('puppet_ntp/ntp.conf.epp',{'servers' => $puppet_ntp::servers, 'monitor' => $puppet_ntp::monitor}),
     owner   => 'root',
     group   => $group,
     mode    => '0664',

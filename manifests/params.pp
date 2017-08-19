@@ -16,4 +16,12 @@ class puppet_ntp::params {
   $conf_file = '/etc/ntp.conf'
 
   $package_name = 'ntp'
+
+  $servers = [
+    '01.pool.ntp.org',
+    '02.pool.ntp.org',
+    '03.pool.ntp.org',
+  ]
+
+  $monitor = false
 }
