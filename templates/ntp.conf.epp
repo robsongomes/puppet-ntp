@@ -1,11 +1,11 @@
 # Managed by puppet
 
-<% $servers.each |server| { -%>
-server <%= server %> iburst
+<% $servers.flatten.each |$server| { -%>
+server <%= $server %> iburst
 <% } -%>
 
 driftfile /var/lib/ntp/drift
 
-<% unless @monitor == true { -%>
+<% unless $monitor == true { -%>
 disable monitor
 <% } -%>
